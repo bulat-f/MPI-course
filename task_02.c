@@ -6,16 +6,16 @@
 int main (int argc, char* argv[])
 {
     const int N = 10;
-	int errCode, currRank;
+    int errCode, currRank;
     MPI_Status status;
     int array[N];
 
-	if ((errCode = MPI_Init(&argc, &argv)) != 0)
-	{
-		return errCode;
-	}
+    if ((errCode = MPI_Init(&argc, &argv)) != 0)
+    {
+        return errCode;
+    }
 
-	MPI_Comm_rank(MPI_COMM_WORLD, &currRank);
+    MPI_Comm_rank(MPI_COMM_WORLD, &currRank);
 
     srand(time(NULL));
 
@@ -36,7 +36,7 @@ int main (int argc, char* argv[])
         printf("\n");
     }
 
-	MPI_Finalize();
-	return 0;
+    MPI_Finalize();
+    return 0;
 }
 
