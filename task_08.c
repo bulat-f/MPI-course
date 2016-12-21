@@ -10,15 +10,15 @@ double dotProduce(double *x, double *y, const int size);
 int main (int argc, char* argv[])
 {
     const int M = 1;
-	int errCode, size, currRank, N;
+    int errCode, size, currRank, N;
     double x_map[M], y_map[M], *x, *y, d;
 
-	if ((errCode = MPI_Init(&argc, &argv)) != 0)
-	{
-		return errCode;
-	}
+    if ((errCode = MPI_Init(&argc, &argv)) != 0)
+    {
+        return errCode;
+    }
 
-	MPI_Comm_rank(MPI_COMM_WORLD, &currRank);
+    MPI_Comm_rank(MPI_COMM_WORLD, &currRank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
     srand(time(NULL));
@@ -47,8 +47,8 @@ int main (int argc, char* argv[])
         printf("dot produce = %f\n", d);
     }
 
-	MPI_Finalize();
-	return 0;
+    MPI_Finalize();
+    return 0;
 }
 
 void printVector(double *x, const int size)

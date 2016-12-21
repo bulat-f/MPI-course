@@ -9,14 +9,14 @@ int main (int argc, char* argv[])
 {
     const int N = 8;
     const int M = N / 2;
-	int errCode, size, currRank;
+    int errCode, size, currRank;
     MPI_Status status;
     int a[N][N], b[M][N], c[M][N];
 
-	if ((errCode = MPI_Init(&argc, &argv)) != 0)
-	{
-		return errCode;
-	}
+    if ((errCode = MPI_Init(&argc, &argv)) != 0)
+    {
+        return errCode;
+    }
 
     MPI_Datatype send_type, recv_type;
 
@@ -58,8 +58,8 @@ int main (int argc, char* argv[])
         printf("===================\n");
     }
 
-	MPI_Finalize();
-	return 0;
+    MPI_Finalize();
+    return 0;
 }
 
 void printMatrix(int A[][8], const int N, const int M)

@@ -8,24 +8,24 @@ void printMatrix(int A[][8], const int N, const int M);
 int main (int argc, char* argv[])
 {
     const int N = 8;
-	int errCode, size, currRank;
+    int errCode, size, currRank;
     MPI_Status status;
     int a[N][N], d[N][N];
 
-	if ((errCode = MPI_Init(&argc, &argv)) != 0)
-	{
-		return errCode;
-	}
+    if ((errCode = MPI_Init(&argc, &argv)) != 0)
+    {
+        return errCode;
+    }
 
     MPI_Datatype type;
     int lengths[N], indexes[N];
-	for (int i = 0; i < N; i++)
-	{
-		lengths[i] = N - i;
-		indexes[i] = N * i + i;
-	}
-	MPI_Type_indexed(N, lengths, indexes, MPI_INT, &type);
-	MPI_Type_commit(&type);
+    for (int i = 0; i < N; i++)
+    {
+        lengths[i] = N - i;
+        indexes[i] = N * i + i;
+    }
+    MPI_Type_indexed(N, lengths, indexes, MPI_INT, &type);
+    MPI_Type_commit(&type);
 
     MPI_Comm_rank(MPI_COMM_WORLD, &currRank);
 
@@ -52,8 +52,8 @@ int main (int argc, char* argv[])
         printf("===================\n");
     }
 
-	MPI_Finalize();
-	return 0;
+    MPI_Finalize();
+    return 0;
 }
 
 void printMatrix(int A[][8], const int N, const int M)

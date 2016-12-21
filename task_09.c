@@ -16,16 +16,16 @@ struct pair min(double *x, const int size, const int shift);
 int main (int argc, char* argv[])
 {
     const int M = 2;
-	int errCode, size, currRank, N;
+    int errCode, size, currRank, N;
     double x_map[M], *x;
     struct pair m;
 
-	if ((errCode = MPI_Init(&argc, &argv)) != 0)
-	{
-		return errCode;
-	}
+    if ((errCode = MPI_Init(&argc, &argv)) != 0)
+    {
+        return errCode;
+    }
 
-	MPI_Comm_rank(MPI_COMM_WORLD, &currRank);
+    MPI_Comm_rank(MPI_COMM_WORLD, &currRank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
     srand(time(NULL));
@@ -50,8 +50,8 @@ int main (int argc, char* argv[])
         printf("min.value == %f;\nmin.index == %d;\n", m.value, m.index);
     }
 
-	MPI_Finalize();
-	return 0;
+    MPI_Finalize();
+    return 0;
 }
 
 void printVector(double *x, const int size)

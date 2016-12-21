@@ -9,16 +9,16 @@ void printMessage(int *msg, const int size);
 int main (int argc, char* argv[])
 {
     const int N = 10;
-	int errCode, size, currRank;
+    int errCode, size, currRank;
     MPI_Status status;
     int array[N];
 
-	if ((errCode = MPI_Init(&argc, &argv)) != 0)
-	{
-		return errCode;
-	}
+    if ((errCode = MPI_Init(&argc, &argv)) != 0)
+    {
+        return errCode;
+    }
 
-	MPI_Comm_rank(MPI_COMM_WORLD, &currRank);
+    MPI_Comm_rank(MPI_COMM_WORLD, &currRank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
     srand(time(NULL));
@@ -41,8 +41,8 @@ int main (int argc, char* argv[])
         printMessage(msg, msgSize);
     }
 
-	MPI_Finalize();
-	return 0;
+    MPI_Finalize();
+    return 0;
 }
 
 int* receiveMessage(int *size)
